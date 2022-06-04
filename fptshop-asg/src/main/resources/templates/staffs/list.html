@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+  <tr>
+    <td>Staff ID</td>
+    <td>Name</td>
+    <td>Birthday</td>
+    <td>Photo</td>
+    <td>Department ID</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr th:each="staff :${staffs}">
+    <td th:text="${staff.id}"></td>
+    <td th:text="${staff.name}"></td>
+    <td th:text="${staff.birthday}"></td>
+    <td>
+    	<img alt="@{'/getimage/'+${staff.id}}" th:src="${staff.photo}">
+    </td>
+    <td th:text="${staff.depart.name}"></td>
+    <td>
+    	<a href="">Edit</a>
+    	<a href="">Delete</a>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

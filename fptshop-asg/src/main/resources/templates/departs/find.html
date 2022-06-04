@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>List All Departments</h1>
+<form th:action="@{/departs/find}">
+	Name : 
+	<input type="text" name="name" placeholder="Name">
+	<input type="submit" value="Find">
+</form>
+<table>
+	<tr>
+		<td>Department ID</td>
+		<td>Name</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr  th:each="item : ${departs}">
+		<td th:text="${item.id}"></td>
+		<td th:text="${item.name}"></td>
+		<td>
+		<a th:href="@{'/departs/edit/'+${item.id}}">Edit</a> |
+		<a th:href="@{'/departs/delete/'+${item.id}}">Delete</a>
+		</td>
+	</tr>
+	
+</table>
+</body>
+</html>
